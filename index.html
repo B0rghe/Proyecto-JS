@@ -4,42 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/logoSitio.ico">
     <title>Tienda SAMādhi</title>
-    <script src="js/script.js"></script>
+    <meta name="description" content="SAMādhi-Estudio de Yoga. Clases presenciales o virtuales. Encontra el equilibrio entre tu cuerpo, mente y alma.">
+    <meta name="keywords" content="yoga, samadhi, estudio de yoga">
+    <link rel="icon" href="img/logoSitio.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <nav>
-        <div>
-            <a href="index.html"><img src="img/logoNav.png" alt="Logo Samādhi" class="logoNav"></a>
-            <input type="search">
-            <a href="pages/carrito.html"><img src="img/carrito.png" alt="Carrito" class="carrito"></a>
+    <nav class="navbar navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="img/logoNav.png" alt="Logo Samādhi" width="30" height="30"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <img src="img/carrito.png" alt="Carrito" width="30" height="30">
+          </button>
+          <div class="navCarro offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Carrito</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <div id= "carrito"></div>
+              <p id="pTotal"></p>
+            </div>
+          </div>
         </div>
-    </nav>
+      </nav>
+
     <div class="mainIndex">
-        <h1>Tienda SAMādhi</h1>
-        <div class="categorias">
+        <!-- INICIO Main -->
+        <img src="img/tiendasamadhi.png" alt="Portada SAMādhi" id="portada">
 
+        <!--  INICIO Cuadros Info  -->
+        <div class="divIndex divIndex--uno">
+            <img class="imgProd" src="img/mat6.png" alt="Mat 6mm">
+            <h3 class="tituloProd" id="titulo1"></h3>
+            <p class="precio" id="precio1"></p>
+            <button class="boton" id="prodUno">Agregar al carrito</button>
         </div>
-        <div class="articulos">
-            <div class="articulos articulos__producto">Producto Uno</div>
-            <div class="articulos articulos__producto">Producto Dos</div>
-            <div class="articulos articulos__producto">Producto Tres</div>
-            <div class="articulos articulos__producto">Producto Cuatro</div>
-            <div class="articulos articulos__producto">Producto Cinco</div>
-            <div class="articulos articulos__producto">Producto Seis</div>
+        <div class="divIndex divIndex--dos">
+            <img class="imgProd" src="img/mat8.png" alt="Mat 8mm">
+            <h3 class="tituloProd" id="titulo2"></h3>
+            <p class="precio" id="precio2"></p>
+            <button class="boton" id="prodDos">Agregar al carrito</button>
         </div>
-        <div class="oferta">
-            <div class="oferta oferta__producto">Producto Uno</div>
-            <div class="oferta oferta__producto">Producto Dos</div>
-            <div class="oferta oferta__producto">Producto Tres</div>
-            <div class="oferta oferta__producto">Producto Cuatro</div>    
-
+        <div class="divIndex divIndex--tres">
+            <img class="imgProd" src="img/pelota65.png" alt="Pelota 65cm">
+            <h3 class="tituloProd" id="titulo3"></h3>
+            <p class="precio" id="precio3"></p>
+            <button class="boton" id="prodTres">Agregar al carrito</button>
         </div>
-        <footer class="footer">
-
-        </footer>
+        <div class="divIndex divIndex--cuatro">
+            <img class="imgProd" src="img/pelota85.png" alt="Pelota 85cm">
+            <h3 class="tituloProd" id="titulo4"></h3>
+            <p class="precio" id="precio4"></p>
+            <button class="boton" id="prodCuatro">Agregar al carrito</button>
+        </div>
+        <div class="divIndex divIndex--cinco">
+            <img class="imgProd" src="img/kitelonga.png" alt="Mat 6mm">
+            <h3 class="tituloProd" id="titulo5"></h3>
+            <p class="precio" id="precio5"></p>
+            <button class="boton" id="prodCinco">Agregar al carrito</button>
+        </div>
+        <div class="divIndex divIndex--seis">
+            <img class="imgProd" src="img/kityoga.png" alt="Mat 8mm">
+            <h3 class="tituloProd" id="titulo6"></h3>
+            <p class="precio" id="precio6"></p>
+            <button class="boton" id="prodSeis">Agregar al carrito</button>
+        </div>
+        <div class="divIndex divIndex--siete">
+            <img class="imgProd" src="img/pelota65.png" alt="Pelota 65cm">
+            <h3 class="tituloProd" id="titulo7"></h3>
+            <p class="precio" id="precio7"></p>
+            <button class="boton" id="prodSiete">Agregar al carrito</button>
+        </div>
+        <div class="divIndex divIndex--ocho">
+            <img class="imgProd" src="img/pelota85.png" alt="Pelota 85cm">
+            <h3 class="tituloProd" id="titulo8"></h3>
+            <p class="precio" id="precio8"></p>
+            <button class="boton" id="prodOcho">Agregar al carrito</button>
+        </div>
+        <div class="divIndex divIndex--nueve">
+            <img class="imgProd" src="img/pelota85.png" alt="Pelota 85cm">
+            <h3 class="tituloProd" id="titulo9"></h3>
+            <p class="precio" id="precio9"></p>
+            <button class="boton" id="prodNueve">Agregar al carrito</button>
+        </div>
     </div>
+
+    <!-- INICIO FOOTER -->
+    <footer class="footer">
+        <img src="img/footersamadhi.png" alt="Footer SAMādhi" class="footer__logo">
+        <p class="footer__copyright">Copyright - Todos los derechos reservados</p>
+    </footer>
+
+    <!--  INICIO SCRIPTS  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script src="js/carrito.js"></script>
 </body>
 </html>
