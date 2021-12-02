@@ -1,7 +1,8 @@
 let carrito = [];
 
-if (carrito !== null){
-    carrito = JSON.parse(localStorage.getItem("prodGuardados"));;
+let prodGuardados = localStorage.getItem("prodGuardados");;
+if (prodGuardados){
+    carrito = JSON.parse(prodGuardados)
     creaCarrito();
 }
 
@@ -24,21 +25,12 @@ document.getElementById("prodOcho")
 document.getElementById("prodNueve")
     .onclick = () => agregarCarrito(9);
 
+function guardarStorage() {localStorage.setItem("prodGuardados", JSON.stringify(carrito))}
+
 function agregarCarrito(cod) {
     let producto = productos.find((prod => prod.codigo == cod))
-
-    // producto = productos.find(function (producto) {
-    //     if(producto.codigo == cod)
-    //         return true;
-    //     else
-    //         return false;
-    //     }
-    // );
-
     carrito.push(producto);
-
-    localStorage.setItem("prodGuardados", JSON.stringify(carrito));
-
+    guardarStorage();
     creaCarrito();
 }
 function creaCarrito() {
@@ -55,12 +47,11 @@ function creaCarrito() {
         precioTotal += producto.precio;
     }
     htmlString += "</ul>";
-
     carro.innerHTML = htmlString;
 
     let carroPrecio = document.getElementById("pTotal");
     carroPrecio.innerHTML = `TOTAL: $ ${precioTotal}`;
-
+    guardarStorage();
     eliminaItem();
 }
 function eliminaItem() {
@@ -71,6 +62,7 @@ function eliminaItem() {
             let id = boton.getAttribute("id");
             idNumber = id.split("_")[1];
             carrito.splice(idNumber, 1);
+            guardarStorage();
             creaCarrito();
         }
     }
