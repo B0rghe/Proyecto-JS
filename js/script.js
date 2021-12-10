@@ -1,3 +1,14 @@
+const productos = [
+    {codigo: 1, titulo: "MAT 6MM",        categoria: "YOGA",    precio: 2300.00, stock: 10, vendidos:0},
+    {codigo: 2, titulo: "MAT 6MM",        categoria: "YOGA",    precio: 2889.99, stock: 12, vendidos:0},
+    {codigo: 3, titulo: "PELOTA 85CM",    categoria: "PILATES", precio: 1380.00, stock: 8,  vendidos:0},
+    {codigo: 4, titulo: "PELOTA 65CM",    categoria: "PILATES", precio: 1089.50, stock: 7,  vendidos:0},
+    {codigo: 5, titulo: "KIT ELONGACION", categoria: "YOGA",    precio: 1230.00, stock: 15, vendidos:0},
+    {codigo: 6, titulo: "KIT YOGA",       categoria: "YOGA",    precio: 4599.00, stock: 14, vendidos:0},
+    {codigo: 7, titulo: "PELOTA 85CM",    categoria: "PILATES", precio: 1380.00, stock: 17, vendidos:0},
+    {codigo: 8, titulo: "PELOTA 65CM",    categoria: "PILATES", precio: 1089.50, stock: 4,  vendidos:0},
+    {codigo: 9, titulo: "PELOTA 65CM",    categoria: "PILATES", precio: 1089.50, stock: 9,  vendidos:0}
+]
 class articulo {
     constructor(codigo, titulo, categoria, precio, stock){
         this.codigo = codigo;
@@ -5,28 +16,9 @@ class articulo {
         this.categoria = categoria.toUpperCase();
         this.precio = parseFloat(precio);
         this.stock = parseInt(stock);
-        this.oferta = false;
         this.vendidos = 0;
     }
-    descuento() {
-        this.precio = this.precio * 0.7;
-        this.oferta = true;
-    }
-    venta(cantVenta) {
-        this.vendidos = this.vendidos + cantVenta;
-        this.stock = this.stock - cantVenta;
-    }
 }
-const productos = [];
-productos.push(new articulo(1, "mat 6mm",        "yoga",    2300.00, 10));
-productos.push(new articulo(2, "mat 8mm",        "yoga",    2889.99, 6));
-productos.push(new articulo(3, "pelota 85cm",    "pilates", 1380.00, 8));
-productos.push(new articulo(4, "pelota 65cm",    "pilates", 1089.50, 8));
-productos.push(new articulo(5, "kit elongación", "yoga",    1230.00, 12));
-productos.push(new articulo(6, "kit yoga",       "yoga",    4599.00, 7));
-productos.push(new articulo(7, "pelota 85cm",    "pilates", 1380.00, 8));
-productos.push(new articulo(8, "pelota 65cm",    "pilates", 1089.50, 8));
-productos.push(new articulo(9, "pelota 65cm",    "pilates", 1089.50, 8));
 
 for (let producto of productos){
     let nombreProd = document.getElementById(`titulo${producto.codigo}`);

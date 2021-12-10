@@ -6,36 +6,28 @@ if (prodGuardados){
     creaCarrito();
 }
 
-document.getElementById("prodUno")
-    .onclick = () => agregarCarrito(1);
-document.getElementById("prodDos")
-    .onclick = () => agregarCarrito(2);
-document.getElementById("prodTres")
-    .onclick = () => agregarCarrito(3);
-document.getElementById("prodCuatro")
-    .onclick = () => agregarCarrito(4);
-document.getElementById("prodCinco")
-    .onclick = () => agregarCarrito(5);
-document.getElementById("prodSeis")
-    .onclick = () => agregarCarrito(6);
-document.getElementById("prodSiete")
-    .onclick = () => agregarCarrito(7);
-document.getElementById("prodOcho")
-    .onclick = () => agregarCarrito(8);
-document.getElementById("prodNueve")
-    .onclick = () => agregarCarrito(9);
+for (const producto of productos) {
+    $(`#prod${producto.codigo}`).click(() =>agregarCarrito(producto.codigo));
+}
 
 function guardarStorage() {localStorage.setItem("prodGuardados", JSON.stringify(carrito))}
 
 function agregarCarrito(cod) {
     let producto = productos.find((prod => prod.codigo == cod))
-    carrito.push(producto);
-    guardarStorage();
-    creaCarrito();
+    if (producto.stock > 0) {
+        producto.stock--;
+        producto.vendidos++;
+        carrito.push(producto);
+        guardarStorage();
+        creaCarrito();
+        console.log("Producto agregado");
+    }else {
+        console.log("No hay mas stock");
+    }
 }
 function creaCarrito() {
+    let precioTotal = 0;
     let carro = document.getElementById("carrito");
-    let precioTotal = 0
     carro.innerHTML = "";
     htmlString = "<ul>";
     for(const i in carrito ) {
@@ -54,6 +46,7 @@ function creaCarrito() {
     guardarStorage();
     eliminaItem();
 }
+
 function eliminaItem() {
     let botones = document.getElementsByClassName("eliminar");
 
